@@ -31,12 +31,12 @@ class CustomVerifyEmailNotification extends VerifyEmail
             'signature' => $queryParams['signature'] ?? ''
         ]);
 
+        // Use custom email template
         return (new MailMessage)
-            ->subject('Подтверждение адреса электронной почты')
-            ->greeting('Здравствуйте!')
-            ->line('Пожалуйста, нажмите на кнопку ниже, чтобы подтвердить ваш адрес электронной почты.')
-            ->action('Подтвердить Email', $frontendUrl)
-            ->line('Если вы не создавали аккаунт, просто проигнорируйте это письмо.')
-            ->salutation('С уважением, команда ' . config('app.name'));
+            ->subject('Подтверждение Email - BONUS5')
+            ->view('emails.verification-russian', [
+                'verificationUrl' => $frontendUrl,
+                'user' => $notifiable
+            ]);
     }
 }
