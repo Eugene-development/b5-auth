@@ -36,7 +36,7 @@ class AuthController extends Controller
         )->plainTextToken;
 
         // Send email verification notification
-        // $user->sendEmailVerificationNotification();
+        $user->sendEmailVerificationNotification();
 
         $tokenData = [
             'user' => $user,
