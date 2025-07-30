@@ -6,7 +6,6 @@ Route::get('/2', function () {
     return view('welcome');
 });
 
-
 Route::get('/test-db', function () {
     try {
         DB::connection()->getPdo();
@@ -14,4 +13,4 @@ Route::get('/test-db', function () {
     } catch (\Exception $e) {
         return 'Unable to connect to the database: ' . $e->getMessage();
     }
-})->middleware('auth:sanctum');;
+})->middleware('auth:sanctum');

@@ -48,11 +48,3 @@ Route::middleware(['auth:sanctum'])->group(function () {
 Route::get('/email/verify/{id}/{hash}', [AuthController::class, 'verifyEmail'])
     ->middleware(['signed'])
     ->name('verification.verify');
-
-// Legacy routes for backward compatibility (consider removing in future)
-Route::post('/register', [AuthController::class, 'register'])
-    ->middleware('throttle:3,1');
-Route::post('/login', [AuthController::class, 'login'])
-    ->middleware('throttle:5,1');
-Route::post('/logout', [AuthController::class, 'logout'])
-    ->middleware('auth:sanctum');

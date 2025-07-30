@@ -24,7 +24,7 @@ class CustomVerifyEmailNotification extends VerifyEmail
         $hash = $pathParts[4] ?? '';
 
         // Build frontend URL with query parameters
-        $frontendUrl = env('FRONTEND_URL', 'http://localhost:5173') . '/email-verify?' . http_build_query([
+        $frontendUrl = env('FRONTEND_URL', 'https://bonus5.ru') . '/email-verify?' . http_build_query([
             'id' => $id,
             'hash' => $hash,
             'expires' => $queryParams['expires'] ?? '',

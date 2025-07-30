@@ -10,8 +10,16 @@
 [ -f /run/secrets/app_url ] && export APP_URL=$(cat /run/secrets/app_url)
 [ -f /run/secrets/mail_username ] && export MAIL_USERNAME=$(cat /run/secrets/mail_username)
 [ -f /run/secrets/mail_password ] && export MAIL_PASSWORD=$(cat /run/secrets/mail_password)
+[ -f /run/secrets/FRONTEND_URL ] && export FRONTEND_URL=$(cat /run/secrets/FRONTEND_URL)
 
 # Добавьте другие secrets по аналогии, если нужно
+
+# Очистка кеша Laravel при запуске
+echo "🧹 Clearing Laravel cache..."
+php artisan config:clear
+php artisan cache:clear
+php artisan route:clear
+php artisan view:clear
 
 # Запуск php-fpm (или другой вашей команды)
 exec php-fpm
