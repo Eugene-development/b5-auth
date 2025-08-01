@@ -12,6 +12,14 @@
 [ -f /run/secrets/mail_password ] && export MAIL_PASSWORD=$(cat /run/secrets/mail_password)
 [ -f /run/secrets/FRONTEND_URL ] && export FRONTEND_URL=$(cat /run/secrets/FRONTEND_URL)
 
+# CORS и Sanctum configuration
+[ -f /run/secrets/cors_origins ] && export CORS_ORIGINS=$(cat /run/secrets/cors_origins)
+[ -f /run/secrets/sanctum_domains ] && export SANCTUM_STATEFUL_DOMAINS=$(cat /run/secrets/sanctum_domains)
+
+# Session configuration
+[ -f /run/secrets/SESSION_DOMAIN ] && export SESSION_DOMAIN=$(cat /run/secrets/SESSION_DOMAIN)
+[ -f /run/secrets/SESSION_COOKIE ] && export SESSION_COOKIE=$(cat /run/secrets/SESSION_COOKIE)
+
 # Добавьте другие secrets по аналогии, если нужно
 
 # Очистка кеша Laravel при запуске
