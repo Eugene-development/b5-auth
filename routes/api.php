@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     // Profile management
     Route::get('/profile', [ProfileController::class, 'show']);
+
+    // Project management
+    Route::apiResource('projects', ProjectController::class);
 });
 
 // Email verification route (signed, no auth required)
