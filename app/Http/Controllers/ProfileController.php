@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -12,7 +13,16 @@ class ProfileController extends Controller
         $canUpdate = $request->user()->tokenCan('user:update');
         $canDelete = $request->user()->tokenCan('user:delete');
 
-        // return response()->json(['user' => $request->user()], 200);
-        return response()->json(['user' => $request->user(), 'canCreate' => $canCreate, 'canUpdate' => $canUpdate, 'canDelete' => $canDelete], 200);
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'user' => new UserResource($request->user()),
+                'permissions' => [
+                    'canCreate' => $canCreate,
+                    'canUpdate' => $canUpdate,
+                    'canDelete' => $canDelete
+                ]
+            ]
+        ], 200);
     }
 }
