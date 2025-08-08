@@ -4,13 +4,10 @@ namespace App\Listeners;
 
 use App\Notifications\WelcomeEmailNotification;
 use Illuminate\Auth\Events\Verified;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Log;
 
-class SendWelcomeEmail implements ShouldQueue
+class SendWelcomeEmail
 {
-    use InteractsWithQueue;
 
     /**
      * Create the event listener.

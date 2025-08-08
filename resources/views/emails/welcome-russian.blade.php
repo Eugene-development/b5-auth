@@ -102,6 +102,9 @@
                                         <h2 class="welcome-text" style="margin: 0; font-size: 28px; font-weight: 600; color: #ffffff; letter-spacing: 2px;">
                                             🎉 Поздравляем!
                                         </h2>
+                                        {{-- <p style="margin: 16px 0 0 0; font-size: 18px; color: #10b981; line-height: 1.7; font-weight: 600;">
+                                            {{ $user->name ?? 'Дорогой клиент' }}
+                                        </p> --}}
                                         <p style="margin: 16px 0 0 0; font-size: 18px; color: #10b981; line-height: 1.7; font-weight: 600;">
                                             Ваш аккаунт успешно активирован
                                         </p>
@@ -113,33 +116,18 @@
                             <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
                                     <td style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                                        <p style="margin: 0 0 24px 0; font-size: 16px; color: #f3f4f6; line-height: 1.7; text-align: center;">
-                                            Добро пожаловать в BONUS5, <strong style="color: #10b981;">{{ $user->name ?? 'дорогой клиент' }}</strong>!
+                                        {{-- <p style="margin: 0 0 24px 0; font-size: 16px; color: #f3f4f6; line-height: 1.7; text-align: center;">
+                                             <strong style="color: #10b981;">{{ $user->name ?? 'дорогой клиент' }}, добро пожаловать</strong>!
+                                        </p> --}}
+                                        {{-- <p style="margin: 0 0 24px 0; font-size: 16px; color: #f3f4f6; line-height: 1.7; text-align: center;">
+                                            Инструкция!
                                         </p>
 
                                         <p style="margin: 0 0 32px 0; font-size: 16px; color: #f3f4f6; line-height: 1.7; text-align: center;">
-                                            Теперь у вас есть полный доступ ко всем возможностям нашей платформы. Начните получать выгоду прямо сейчас!
-                                        </p>
+                                            Теперь у вас есть полный доступ ко всем возможностям нашей платформы.
+                                        </p> --}}
 
-                                        <!-- Dashboard Button -->
-                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 32px 0;">
-                                            <tr>
-                                                <td align="center">
-                                                    <table cellpadding="0" cellspacing="0" border="0">
-                                                        <tr>
-                                                            <td style="background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); border-radius: 8px; box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.4); transition: all 0.3s ease;">
-                                                                <a href="{{ $frontendUrl }}/dashboard"
-                                                                   class="button-padding"
-                                                                   style="display: inline-block; padding: 16px 32px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; border-radius: 8px;"
-                                                                   target="_blank">
-                                                                    Перейти в личный кабинет
-                                                                </a>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
+
 
                                         <!-- Quick Start Tips -->
                                         <p style="margin: 32px 0 16px 0; font-size: 18px; color: #ffffff; font-weight: 600; text-align: center;">
@@ -157,7 +145,7 @@
                                                             </td>
                                                             <td>
                                                                 <p style="margin: 0; font-size: 15px; color: #d1d5db; line-height: 1.6;">
-                                                                    Заполните <strong style="color: #ffffff;">профиль</strong> для получения персональных предложений
+                                                                    Перейдите по <strong style="color: #ffffff;">ссылке</strong> на форму нашего партнёра для отправки данных
                                                                 </p>
                                                             </td>
                                                         </tr>
@@ -173,7 +161,7 @@
                                                             </td>
                                                             <td>
                                                                 <p style="margin: 0; font-size: 15px; color: #d1d5db; line-height: 1.6;">
-                                                                    Изучите доступные <strong style="color: #ffffff;">проекты</strong> и выберите подходящие
+                                                                    Заполните <strong style="color: #ffffff;">форму </strong> и вставьте ваш секретный ключ (он есть в вашем кабинете)
                                                                 </p>
                                                             </td>
                                                         </tr>
@@ -189,8 +177,28 @@
                                                             </td>
                                                             <td>
                                                                 <p style="margin: 0; font-size: 15px; color: #d1d5db; line-height: 1.6;">
-                                                                    Начните зарабатывать <strong style="color: #ffffff;">кэшбэк и бонусы</strong> уже сегодня
+                                                                    Отслеживайте статус проекта в личном кабинете <strong style="color: #ffffff;">и получайте бонусы</strong> при успешной сделке
                                                                 </p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <!-- Dashboard Button -->
+                                        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 32px 0;">
+                                            <tr>
+                                                <td align="center">
+                                                    <table cellpadding="0" cellspacing="0" border="0">
+                                                        <tr>
+                                                            <td style="background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); border-radius: 8px; box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.4); transition: all 0.3s ease;">
+                                                                <a href="https://bonus.band/"
+                                                                   class="button-padding"
+                                                                   style="display: inline-block; padding: 16px 32px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; border-radius: 8px;"
+                                                                   target="_blank">
+                                                                    Ссылка на форму
+                                                                </a>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -209,7 +217,6 @@
                                             🎁 Ваши преимущества в BONUS5:
                                         </h3>
 
-                                        <!-- Benefit Items -->
                                         <table width="100%" cellpadding="0" cellspacing="0" border="0">
                                             <tr>
                                                 <td style="padding: 16px 0;">
@@ -219,14 +226,15 @@
                                                                 <table cellpadding="0" cellspacing="0" border="0" style="width: 24px; height: 24px; background: #10b981; border-radius: 50%;">
                                                                     <tr>
                                                                         <td align="center" valign="middle" style="width: 24px; height: 24px; text-align: center; vertical-align: middle;">
-                                                                            <span style="color: #ffffff; font-size: 14px; font-weight: bold; line-height: 1;">💰</span>
+                                                                            <span style="color: #ffffff; font-size: 14px; font-weight: bold; line-height: 1;">👥</span>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
                                                             </td>
+
                                                             <td>
                                                                 <p style="margin: 0; font-size: 16px; color: #d1d5db; line-height: 1.6;">
-                                                                    <strong style="color: #ffffff;">До 5% кэшбэк</strong> с каждой покупки для себя
+                                                                    <strong style="color: #ffffff;">Полная конфиденциальность</strong> вашей личности
                                                                 </p>
                                                             </td>
                                                         </tr>
@@ -241,7 +249,7 @@
                                                                 <table cellpadding="0" cellspacing="0" border="0" style="width: 24px; height: 24px; background: #10b981; border-radius: 50%;">
                                                                     <tr>
                                                                         <td align="center" valign="middle" style="width: 24px; height: 24px; text-align: center; vertical-align: middle;">
-                                                                            <span style="color: #ffffff; font-size: 14px; font-weight: bold; line-height: 1;">👥</span>
+                                                                            <span style="color: #ffffff; font-size: 14px; font-weight: bold; line-height: 1;">💰</span>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -295,10 +303,15 @@
                                                     <p style="margin: 0 0 16px 0; font-size: 14px; color: #d1d5db; line-height: 1.6;">
                                                         Наша служба поддержки всегда готова помочь вам разобраться с любыми вопросами.
                                                     </p>
+
                                                     <a href="{{ $frontendUrl }}/profile"
                                                        style="color: #60a5fa; text-decoration: none; font-weight: 600; font-size: 14px;">
-                                                        Связаться с поддержкой →
+                                                        info@bonus5.ru
                                                     </a>
+                                                    {{-- <a href="{{ $frontendUrl }}/profile"
+                                                       style="color: #60a5fa; text-decoration: none; font-weight: 600; font-size: 14px;">
+                                                        Связаться с поддержкой →
+                                                    </a> --}}
                                                 </td>
                                             </tr>
                                         </table>

@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\AuthTokenResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Notifications\WelcomeEmailNotification;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
@@ -179,6 +180,21 @@ class AuthController extends Controller
 
         if ($user->markEmailAsVerified()) {
             event(new \Illuminate\Auth\Events\Verified($user));
+
+            // Send welcome email directly after successful verification
+            try {
+                $user->notify(new \App\Notifications\WelcomeEmailNotification());
+                \Log::info('Welcome email sent directly after verification', [
+                    'user_id' => $user->id,
+                    'user_email' => $user->email
+                ]);
+            } catch (\Exception $e) {
+                \Log::error('Failed to send welcome email directly', [
+                    'user_id' => $user->id,
+                    'user_email' => $user->email,
+                    'error' => $e->getMessage()
+                ]);
+            }
         }
 
         return response()->json([

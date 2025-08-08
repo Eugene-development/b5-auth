@@ -22,10 +22,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Register event listener for email verification
-        Event::listen(
-            Verified::class,
-            SendWelcomeEmail::class
-        );
+        // Welcome email now sent directly in AuthController
+        // Event listener disabled to avoid duplication
     }
 }
