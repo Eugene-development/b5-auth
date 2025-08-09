@@ -193,7 +193,7 @@
                                                     <table cellpadding="0" cellspacing="0" border="0">
                                                         <tr>
                                                             <td style="background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%); border-radius: 8px; box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.4); transition: all 0.3s ease;">
-                                                                <a href="https://bonus.band/"
+                                                                <a href="https://mebelmobile.ru/"
                                                                    class="button-padding"
                                                                    style="display: inline-block; padding: 16px 32px; font-size: 16px; font-weight: 600; color: #ffffff; text-decoration: none; letter-spacing: 1px; text-transform: uppercase; border-radius: 8px;"
                                                                    target="_blank">

@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'key')) {
-                $table->string('key')->nullable()->after('remember_token');
-            }
+        Schema::table('projects', function (Blueprint $table) {
+            $table->string('phone')->nullable()->after('name');
+            $table->string('city')->nullable()->after('phone');
         });
     }
 
@@ -23,10 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'key')) {
-                $table->dropColumn('key');
-            }
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropColumn(['phone', 'city']);
         });
     }
 };

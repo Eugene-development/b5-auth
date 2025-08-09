@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PublicProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::prefix('auth')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])
         ->middleware('throttle:5,1'); // 5 attempts per minute
 });
+
+// Public project submission (by secret key)
+Route::post('/projects/public-submit', [PublicProjectController::class, 'store'])
+    ->middleware('throttle:10,1');
 
 // Protected routes requiring authentication
 Route::middleware(['auth:sanctum'])->group(function () {

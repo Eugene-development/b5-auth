@@ -20,6 +20,8 @@ class Project extends Model
         'description',
         'status',
         'user_id',
+        'phone',
+        'city',
     ];
 
     /**
