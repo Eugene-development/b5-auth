@@ -23,7 +23,6 @@ class PublicProjectController extends Controller
             ],
             'client_name' => ['required', 'string', 'max:255'],
             'city' => ['nullable', 'string', 'max:255'],
-            'phone' => ['nullable', 'string', 'max:50'],
             'interest' => ['nullable', 'string'],
         ]);
 
@@ -37,11 +36,10 @@ class PublicProjectController extends Controller
         }
 
         $project = $user->projects()->create([
-            'name' => $validated['client_name'],
+            'value' => $validated['client_name'],
             'description' => $validated['interest'] ?? null,
-            'phone' => $validated['phone'] ?? null,
             'city' => $validated['city'] ?? null,
-            'status' => 'active',
+            'is_active' => true,
         ]);
 
         return response()->json([

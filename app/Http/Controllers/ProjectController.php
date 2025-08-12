@@ -28,15 +28,27 @@ class ProjectController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'value' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'nullable|in:active,completed,paused'
+            'city' => 'nullable|string|max:255',
+            'is_active' => 'nullable|boolean',
+            'contract_name' => 'nullable|string|max:255',
+            'contract_date' => 'nullable|date',
+            'contract_amount' => 'nullable|numeric',
+            'agent_percentage' => 'nullable|numeric',
+            'planned_completion_date' => 'nullable|date'
         ]);
 
         $project = $request->user()->projects()->create([
-            'name' => $validated['name'],
+            'value' => $validated['value'],
             'description' => $validated['description'] ?? null,
-            'status' => $validated['status'] ?? 'active'
+            'city' => $validated['city'] ?? null,
+            'is_active' => $validated['is_active'] ?? true,
+            'contract_name' => $validated['contract_name'] ?? null,
+            'contract_date' => $validated['contract_date'] ?? null,
+            'contract_amount' => $validated['contract_amount'] ?? null,
+            'agent_percentage' => $validated['agent_percentage'] ?? null,
+            'planned_completion_date' => $validated['planned_completion_date'] ?? null,
         ]);
 
         return response()->json([
@@ -70,9 +82,15 @@ class ProjectController extends Controller
         }
 
         $validated = $request->validate([
-            'name' => 'sometimes|required|string|max:255',
+            'value' => 'sometimes|required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'sometimes|required|in:active,completed,paused'
+            'city' => 'nullable|string|max:255',
+            'is_active' => 'nullable|boolean',
+            'contract_name' => 'nullable|string|max:255',
+            'contract_date' => 'nullable|date',
+            'contract_amount' => 'nullable|numeric',
+            'agent_percentage' => 'nullable|numeric',
+            'planned_completion_date' => 'nullable|date'
         ]);
 
         $project->update($validated);
