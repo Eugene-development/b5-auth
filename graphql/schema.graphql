@@ -1,0 +1,30 @@
+type Query {
+    "Get all users"
+    users: [User!]! @all
+
+    "Get user by ID"
+    user(id: ID! @eq): User @find
+
+    "Get authenticated user"
+    me: User @auth
+}
+
+type User {
+    "Unique primary key."
+    id: ID!
+
+    "User's name"
+    name: String
+
+    "User's email"
+    email: String
+
+    "When the user was created"
+    created_at: DateTime
+
+    "When the user was last updated"
+    updated_at: DateTime
+}
+
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
