@@ -28,6 +28,7 @@ Route::prefix('auth')->group(function () {
 });
 
 // Public project submission (by secret key)
+// HACK: удалить после реализации в api
 Route::post('/projects/public-submit', [PublicProjectController::class, 'store'])
     ->middleware('throttle:10,1');
 
